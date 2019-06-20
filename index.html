@@ -1,0 +1,79 @@
+<html>
+<title>Password Strength</title>
+<head>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <style>
+   body {
+	background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
+  }
+  .jumbotron{
+    margin:100px;
+  }
+  * {
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+ </style>
+ <script>
+  $(document).ready(function(){
+    $("#password").keyup(function(){
+    var str=$("#password").val();
+	var len=str.length;
+	  if(len>=4&&len<=6)
+	     $(".progress-bar").addClass("progress-bar-danger").css("width","30%").text("Weak");
+	  else if(len>6&&len<=10)
+	     $(".progress-bar").removeClass("progress-bar-danger progress-bar-info").addClass("progress-bar-warning").css("width","50%").text("Better");
+	  else if(len>=11&&len<=14)
+	     $(".progress-bar").removeClass("progress-bar-warning progress-bar-success").addClass("progress-bar-info").css("width","70%").text("Good");
+	  else if(len>=15)
+	     $(".progress-bar").removeClass("progress-bar-info").addClass("progress-bar-success").css("width","100%").text("Strong");
+	  else if(len==0)
+	     $(".progress-bar").removeClass("progress-bar-danger").css("width","0%").text(" ");
+	 });
+	});
+</script>
+ </head>
+ <body>
+     <div class="container">
+	   <div class="rows">
+	      <div class="col-sm-12">
+		     <div class="jumbotron">
+			   <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /></br>
+			   <form action="action_page.php">
+			     <div class="form-group">
+				   <label for="email">Username</label>
+				   <input type="text" class="form-control" id="text" placeholder="Username" required>
+				 </div>
+				 <div class="form-group">
+				  <label for="password">Passsword</label>
+				  <input type="password" class="form-control" id="password" placeholder="Password" required>
+				 </div>
+				 <div class="form-group">
+				  <label><input type="checkbox">Remember me</label>
+				 </div>
+				 <label>Password Strength Indicator</label>
+				 <div class="progress">
+                                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                       
+                                   </div>
+                  </div>
+				 <div class="form-group">
+				    <label><button type="submit" class="btn btn-success btn-block">Submit</button></label>
+				 </div>
+				 </form>
+				 
+			 </div>
+		   </div>
+	   </div>
+	 </div>
+ </body>
+ </html>
